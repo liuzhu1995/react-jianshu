@@ -2,7 +2,7 @@ import styled from "styled-components";
 import logoPic from "./images/nav-logo.png";
 
 export const HeaderWrapper = styled.div`
-  position: relation;
+  position: relative;
   height: 56px;
   border-bottom: 1px solid #f0f0f0;
 `;
@@ -17,9 +17,7 @@ export const HeaderInner = styled.div`
   background-color: #fff;
 `;
 
-export const Logo = styled.a.attrs({
-  href: "/"
-})`
+export const Logo = styled.span`
   position: absolute;
   top: 0;
   left: 0;
@@ -32,7 +30,7 @@ export const Logo = styled.a.attrs({
 `;
 export const Nav = styled.div`
   width: 960px;
-  height: 100px;
+  height: 56px;
   margin: 0 auto;
 `;
 
@@ -64,15 +62,15 @@ export const NavItem = styled.div`
   &.download:hover {
     background-color: #f5f5f5;
   }
-   &.active {
+   &.active span {
     color: #ea6f5a;
   }
 `;
 export const SearchWrapper = styled.div`
   float: left;
   position: relative;
-  padding-left: 20px;
-  .iconfont {
+  margin-left: 20px;
+  .zoom {
     position: absolute;
     right: 4px;
     bottom: 4px;
@@ -124,6 +122,75 @@ export const NavSearch = styled.input.attrs({
   }
   &.slide-exit-active {
     width: 240px;
+  }
+`;
+
+export const SearchInfo = styled.div`
+  position: absolute;
+  top: 100%;
+  left:0;
+  width: 250px;
+  margin-top: 9px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, .2);
+  border-radius: 4px;
+  &::before {
+  position: relative;
+    content: "";
+    left: 27px;
+    width: 10px;
+    height: 10px;
+    transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    top: -5px;
+    z-index: -1;  
+    background-color: pink;
+  }
+`;
+export const SearchInfoList= styled.div`
+  padding: 20px 20px 10px;
+  border-bottom: 1px solid #f0f0f0;
+`;
+
+export const SearchInfoTitle = styled.div`
+  height: 20px;
+  margin-bottom: 10px;
+  .search-hot {
+    float: left;
+    font-size: 14px;
+    color: #969696;
+  }
+  .update {
+    float: right;
+    font-size: 13px;
+    color: #969696;
+    cursor: pointer;
+    :hover {
+      color: #2f2f2f;
+    }
+    .spin {
+      display: inline-block;
+      font-size: 12px;
+      margin-right: 2px;
+      transition: all .4s ease-in;
+     }
+    
+  }
+`;
+
+export const SearchInfoItem = styled.a`
+  display: inline-block;
+  padding: 2px 6px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  font-size: 12px;
+  color: #787878;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  cursor: pointer;
+  :hover {
+    color: #333;
+    border-color: #b4b4b4;
   }
 `;
 
