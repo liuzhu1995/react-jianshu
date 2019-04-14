@@ -131,6 +131,7 @@ export const SearchInfo = styled.div`
   left:0;
   width: 250px;
   margin-top: 9px;
+  background-color: #fff;
   box-shadow: 0 0 8px rgba(0, 0, 0, .2);
   border-radius: 4px;
   &::before {
