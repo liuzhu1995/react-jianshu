@@ -1,3 +1,5 @@
+用react仿写简书的一个练习项目。
+技术栈：react、redux、react-redux、react-styled-component、react-transition-group
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
