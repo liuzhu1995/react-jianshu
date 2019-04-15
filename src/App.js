@@ -6,7 +6,7 @@ import {GlobalStyle} from "./common/styles/style";
 import {GlobalIconFont} from "./common/styles/iconfont";
 import {view as Header} from "./components/header";
 import {view as Home} from "./page/home"
-import Detail from "./page/detail/detail"
+import Detail from "./page/detail/view/detail"
 
 
 

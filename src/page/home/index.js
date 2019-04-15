@@ -4,5 +4,6 @@
  * @date 2019/4/14
 */
 import view from "./view/home"
+import reducer from "./reducer";
 
-export {view}
+export {view, reducer}
