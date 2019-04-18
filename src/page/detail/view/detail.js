@@ -1,17 +1,44 @@
 import React, {Component} from "react";
+import {connect} from "react-redux";
+import {getDetailDataAsync} from "../actions";
 import {
   DetailWrapper,
-  Header
+  Header,
+  Content
 } from "../style";
 
 class Detail extends Component {
+
+  componentDidMount() {
+    const {match: {params: {id}}} = this.props;
+    // const {location: {search}} = this.props;
+    // const id = search.replace(/[^0-9]/ig, "");
+    this.props.getDetailData(id);
+  }
+
   render() {
+    const {title, content} = this.props;
     return (
       <DetailWrapper>
-        <Header>一个土家族80后的家庭简史（1985年——2018年）</Header>
+        <Header>{title}</Header>
+        <Content dangerouslySetInnerHTML={{__html: content}} />
       </DetailWrapper>
     )
   }
 }
 
-export default Detail;
+const mapStateToProps = (state) => {
+  return {
+    title: state.getIn(["detail", "title"]),
+    content: state.getIn(["detail", "content"])
+  }
+};
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getDetailData: (id) => {
+      dispatch(getDetailDataAsync(id))
+    }
+  }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Detail);

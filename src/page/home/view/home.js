@@ -1,6 +1,8 @@
 import React, {Component} from "react";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
+
+
 import ArticleList from "../components/ArticleList";
 import {
   HomeWrapper,
@@ -42,7 +44,9 @@ class Home extends Component {
         <HomeMain>
           <ArticleList/>
         </HomeMain>
-        <HomeLeft></HomeLeft>
+        <HomeLeft>
+          广告推荐栏
+        </HomeLeft>
         {
           showScroll ? <BackTop onClick={this.onClickBackTop}>Top</BackTop> : ""
         }

@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
 import PropTypes from "prop-types";
+import {Link} from "react-router-dom"
 import {
   List,
   ListContent,
@@ -21,17 +22,23 @@ class ArticleList extends Component {
       <div>
         <ArticleLists>
           {
-            articleList.map((item, index) => (
-              <List key={index}>
-                <ListContent>
-                  <ListTitle>{item.title}</ListTitle>
-                  <ListAbstract>{item.desc}</ListAbstract>
-                </ListContent>
-                <ListImg>
-                  <img src={item.imgUrl} alt=""/>
-                </ListImg>
-              </List>
-            ))
+            articleList.map((item, index) => {
+              return (
+                <List key={index}>
+                  <ListContent>
+                    <Link to={"/detail/" + item.id}>
+                      <ListTitle >{item.title}</ListTitle>
+                    </Link>
+                    <ListAbstract>{item.desc}</ListAbstract>
+                  </ListContent>
+                  <ListImg>
+                    <Link to={"/detail/" + item.id}>
+                      <img src={item.imgUrl} alt=""/>
+                    </Link>
+                  </ListImg>
+                </List>
+              )
+            })
           }
         </ArticleLists>
         <LoadMore onClick={getMoreList}>更多</LoadMore>

@@ -87,7 +87,7 @@ class Header extends Component {
     }
   }
   render() {
-    const {focused, handleInputFocus, handleInputBlur, list} = this.props;
+    const {focused, handleInputFocus, handleInputBlur, list, login} = this.props;
     return (
       <HeaderWrapper>
         <Link to="/">
@@ -111,9 +111,12 @@ class Header extends Component {
             <NavItem className="setting">
               <span className="iconfont">&#xe636;</span>
             </NavItem>
-            <NavItem className="login">
-              登陆
-            </NavItem>
+            {
+              login ?  <NavItem>退出</NavItem> : <Link to="/login">
+                        <NavItem className="login">登陆</NavItem>
+              </Link>
+            }
+
           </Right>
           <SearchWrapper>
             <CSSTransition
@@ -148,7 +151,8 @@ const mapStateToProps = (state) => {
     list: state.getIn(["header", "list"]),
     page: state.getIn(["header", "page"]),
     totalPage: state.getIn(["header", "totalPage"]),
-    mouseIn: state.getIn(["header", "mouseIn"])
+    mouseIn: state.getIn(["header", "mouseIn"]),
+    login: state.getIn(["login", "login"])
   }
 };
 const mapDispatchToProps = (dispatch) => {
@@ -180,6 +184,9 @@ const mapDispatchToProps = (dispatch) => {
 
   }
 };
+
+
+
 Header.propTypes = {
   focused: PropTypes.bool.isRequired,
   handleInputFocus: PropTypes.func.isRequired,

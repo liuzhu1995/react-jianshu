@@ -6,7 +6,8 @@ import {GlobalStyle} from "./common/styles/style";
 import {GlobalIconFont} from "./common/styles/iconfont";
 import {view as Header} from "./components/header";
 import {view as Home} from "./page/home"
-import Detail from "./page/detail/view/detail"
+import {view as Login} from "./page/login";
+import {view as Detail} from "./page/detail";
 
 
 
@@ -22,7 +23,8 @@ class App extends Component {
             <Header/>
             <Route>
               <Route path="/" exact component={Home} />
-              <Route path="/detail" exact component={Detail}/>
+              <Route path="/login" exact component={Login} />
+              <Route path="/detail/:id" exact component={Detail}/>
             </Route>
           </div>
         </BrowserRouter>

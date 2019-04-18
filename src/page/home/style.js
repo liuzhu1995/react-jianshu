@@ -16,10 +16,10 @@ export const HomeMain = styled.div`
   // box-shadow: 0 1px 3px rgba(26,26,26,.1);
 `;
 
-export const ArticleLists = styled.ul`
+export const ArticleLists = styled.div`
 
 `;
-export const List = styled.li`
+export const List = styled.div`
   display: flex;
   padding: 15px 2px 20px 0;
   border-bottom: 1px solid #f0f0f0;
@@ -27,6 +27,9 @@ export const List = styled.li`
 export const ListContent = styled.div`
   flex: 1;
   padding-right: 15px;
+  a {
+     text-decoration: none;
+  }
 `;
 export const ListImg = styled.div`
   height: 100px;
@@ -39,7 +42,7 @@ export const ListImg = styled.div`
     width: 100%;
   }
 `;
-export const ListTitle = styled.a`
+export const ListTitle = styled.div`
   display: block;
   margin-bottom: 4px;
   font-size: 18px;

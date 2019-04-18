@@ -5,5 +5,6 @@
 */
 import view from "./view/home"
 import reducer from "./reducer";
+import * as actions from "./actions";
 
-export {view, reducer}
+export {view, reducer, actions}
