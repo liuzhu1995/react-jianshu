@@ -3,6 +3,7 @@ import PropTypes from "prop-types"
 import {CSSTransition} from "react-transition-group";
 import {connect} from "react-redux";
 import { Link } from 'react-router-dom';
+import {actions} from "@/page/login";
 import {
   searchFocus,
   searchBlur,
@@ -87,7 +88,14 @@ class Header extends Component {
     }
   }
   render() {
-    const {focused, handleInputFocus, handleInputBlur, list, login} = this.props;
+    const {
+      list,
+      login,
+      focused,
+      handleInputFocus,
+      handleInputBlur,
+      handleLogOut
+    } = this.props;
     return (
       <HeaderWrapper>
         <Link to="/">
@@ -112,7 +120,7 @@ class Header extends Component {
               <span className="iconfont">&#xe636;</span>
             </NavItem>
             {
-              login ?  <NavItem>退出</NavItem> : <Link to="/login">
+              login ?  <NavItem onClick={handleLogOut}>退出</NavItem> : <Link to="/login">
                         <NavItem className="login">登陆</NavItem>
               </Link>
             }
@@ -137,7 +145,9 @@ class Header extends Component {
         </Nav>
         <Addition>
           <Button className="sign-in">注册</Button>
-          <Button className="writting">写文章</Button>
+          <Link to="/write">
+            <Button className="writting">写文章</Button>
+          </Link>
         </Addition>
       </HeaderWrapper>
     )
@@ -156,7 +166,6 @@ const mapStateToProps = (state) => {
   }
 };
 const mapDispatchToProps = (dispatch) => {
-
   return {
     handleInputFocus: (list) => {
       !list.size && dispatch(searchFocusAsync());
@@ -180,8 +189,10 @@ const mapDispatchToProps = (dispatch) => {
       }else {
         dispatch(changePage(1))
       }
+    },
+    handleLogOut: () => {
+      dispatch(actions.loginOut())
     }
-
   }
 };
 
